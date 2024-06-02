@@ -1,12 +1,11 @@
 import {
   WebGLRenderer,
-  Scene,
   AxesHelper,
   sRGBEncoding,
   PCFShadowMap,
   ACESFilmicToneMapping,
-  Color,
 } from 'three'
+import { playground_scene } from '../scenes/playground_scene'
 import { debug_ui } from './gui'
 
 export const sizes = {
@@ -15,8 +14,8 @@ export const sizes = {
 }
 
 // Scene
-export const scene = new Scene()
-scene.background = new Color('#333')
+// export const scene = new Scene()
+// scene.background = new Color('#333')
 
 const canvas: HTMLElement = document.querySelector('#webgl') as HTMLElement
 
@@ -37,7 +36,7 @@ renderer.toneMappingExposure = 1
 
 // Axes Helper
 const axesHelper = new AxesHelper()
-scene.add(axesHelper)
+playground_scene.add(axesHelper)
 
 debug_ui.gui.addInput(axesHelper, 'visible', {
   label: 'AxesHelper',

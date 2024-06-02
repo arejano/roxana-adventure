@@ -1,6 +1,23 @@
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import { camera } from './camera'
-import { renderer } from './renderer'
+//Assemple
+let ENTITY_COUNTER: number = 0;
 
-export const controls = new OrbitControls(camera, renderer.domElement)
-controls.enableDamping = true
+export type EntityID = string;
+export type EntityTAG = number | string;
+
+export interface IEntity {
+  id: EntityID
+}
+
+
+
+// Class
+
+export class Entity implements IEntity {
+  id: EntityID = `${Date.now()}_${(ENTITY_COUNTER++).toString()}`;
+
+  constructor() { }
+}
+
+export class EntityStorage {
+  entities: Map<EntityID, IEntity> = new Map();
+}

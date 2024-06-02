@@ -1,5 +1,6 @@
 import { PerspectiveCamera } from 'three'
-import { scene, sizes } from './renderer'
+import { playground_scene } from '../scenes/playground_scene'
+import { sizes } from './renderer'
 
 const VERTICAL_FIELD_OF_VIEW = 45 // degrees 45 is the normal
 
@@ -17,6 +18,6 @@ window.addEventListener('resize', () => {
   camera.updateProjectionMatrix()
 })
 
-scene.add(camera)
+playground_scene.add(camera)
 
 export default camera

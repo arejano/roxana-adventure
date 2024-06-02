@@ -1,34 +1,34 @@
-import * as THREE from 'three'
-import { renderer, scene } from './core/renderer'
-import camera from './core/camera'
-import { controls } from './core/orbit-control'
+// import * as THREE from 'three'
+// import { renderer } from './core/renderer'
+// import camera from './core/camera'
+// import { controls } from './core/orbit-control'
+// import { debug_ui } from './core/gui'
 
-import { debug_ui } from './core/gui'
-import { ambientLight, directionalLight, plane, sphere, sphereMaterial } from './core/factories'
+import World from "./core/world";
+
+// import './style.css'
+// import { playground_scene } from './scenes/playground_scene'
+// import { sphereMaterial } from './core/factories'
 
 
-scene.add(ambientLight)
-scene.add(directionalLight)
-scene.add(sphere)
+// const clock = new THREE.Clock()
 
-scene.add(plane)
+// debug_ui.addLightControls();
 
-const clock = new THREE.Clock()
+// const loop = () => {
+//   const elapsedTime = clock.getElapsedTime()
 
-debug_ui.addLightControls();
+//   sphereMaterial.uniforms.uTime.value = elapsedTime
 
-const loop = () => {
-  const elapsedTime = clock.getElapsedTime()
+//   debug_ui.fps.begin()
 
-  sphereMaterial.uniforms.uTime.value = elapsedTime
+//   controls.update()
+//   renderer.render(playground_scene, camera)
 
-  debug_ui.fps.begin()
+//   debug_ui.fps.end()
+//   requestAnimationFrame(loop)
+// }
 
-  controls.update()
-  renderer.render(scene, camera)
+// loop()
 
-  debug_ui.fps.end()
-  requestAnimationFrame(loop)
-}
-
-loop()
+const world = new World();

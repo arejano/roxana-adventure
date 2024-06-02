@@ -1,20 +1,12 @@
 import { BladeApi, Pane } from 'tweakpane'
 import * as EssentialsPlugin from '@tweakpane/plugin-essentials'
-import { BladeController, View } from '@tweakpane/core'
+import { BladeController, TpEvent, View } from '@tweakpane/core'
 import { directionalLight } from './factories'
 
 interface FPSGraph extends BladeApi<BladeController<View>> {
   begin(): void
   end(): void
 }
-// Debug
-// export const gui = new Pane()
-// gui.registerPlugin(EssentialsPlugin)
-
-// export const fpsGraph = gui.addBlade({
-//   view: 'fpsgraph',
-//   label: 'fpsgraph',
-// }) as FPSGraph
 
 export class GameDebugGui {
   gui: Pane = new Pane();
@@ -80,7 +72,7 @@ export class GameDebugGui {
 export interface ButtonCommand {
   title: string,
   label?: string,
-  cb: Function;
+  cb: TpEvent;
 }
 
 export const debug_ui = new GameDebugGui();
